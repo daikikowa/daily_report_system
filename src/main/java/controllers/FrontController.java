@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import actions.ActionBase;
 import actions.UnknownAction;
-import conatants.ForwardConst;
+import constants.ForwardConst;
 
 /**
  * フロントコントローラ

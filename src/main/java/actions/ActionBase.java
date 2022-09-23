@@ -11,9 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import conatants.AttributeConst;
-import conatants.ForwardConst;
-import conatants.PropertyConst;
+import constants.AttributeConst;
+import constants.ForwardConst;
+import constants.PropertyConst;
 
 /**
  * 各Actionクラスの親クラス。共通処理を行う。

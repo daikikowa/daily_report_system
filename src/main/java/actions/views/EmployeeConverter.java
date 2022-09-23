@@ -3,8 +3,8 @@ package actions.views;
 import java.util.ArrayList;
 import java.util.List;
 
-import conatants.AttributeConst;
-import conatants.JpaConst;
+import constants.AttributeConst;
+import constants.JpaConst;
 import models.Employee;
 
 /**
