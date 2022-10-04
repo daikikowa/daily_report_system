@@ -81,7 +81,7 @@ public class EmployeeAction extends ActionBase {
 
     public void create() throws ServletException, IOException {
 
-        //CSRF対策 tokenのチェック
+      //CSRF対策 tokenのチェック
         if (checkAdmin() && checkToken()) { //追記
 
             //パラメータの値を元に従業員情報のインスタンスを作成する
@@ -104,25 +104,23 @@ public class EmployeeAction extends ActionBase {
             if (errors.size() > 0) {
                 //登録中にエラーがあった場合
 
-                //管理者かどうかのチェック
-                if(checkAdmin()) {
-                    putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
-                    putRequestScope(AttributeConst.EMPLOYEE, ev); //入力された従業員情報
-                    putRequestScope(AttributeConst.ERR, errors); //エラーのリスト
+                putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
+                putRequestScope(AttributeConst.EMPLOYEE, ev); //入力された従業員情報
+                putRequestScope(AttributeConst.ERR, errors); //エラーのリスト
 
-                    //新規登録画面を再表示
-                    forward(ForwardConst.FW_EMP_NEW);
+                //新規登録画面を再表示
+                forward(ForwardConst.FW_EMP_NEW);
 
-                } else {
-                    //登録中にエラーがなかった場合
+            } else {
+                //登録中にエラーがなかった場合
 
-                    //セッションに登録完了のフラッシュメッセージを設定
-                    putSessionScope(AttributeConst.FLUSH, MessageConst.I_REGISTERED.getMessage());
+                //セッションに登録完了のフラッシュメッセージを設定
+                putSessionScope(AttributeConst.FLUSH, MessageConst.I_REGISTERED.getMessage());
 
-                    //一覧画面にリダイレクト
-                    redirect(ForwardConst.ACT_EMP, ForwardConst.CMD_INDEX);
-                }
+                //一覧画面にリダイレクト
+                redirect(ForwardConst.ACT_EMP, ForwardConst.CMD_INDEX);
             }
+
         }
     }
 
